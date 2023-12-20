@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: review-deployment
+spec:
+  replicas: 3  # Set the number of replicas as needed
+  selector:
+    matchLabels:
+      app: review-deployment
+  template:
+    metadata:
+      labels:
+        app: review-deployment
+    spec:
+      containers:
+      - name: imdb-container
+        image: imdb-image
+        ports:
+        - containerPort: 80
